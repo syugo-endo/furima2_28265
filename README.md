@@ -25,7 +25,7 @@ Things you may want to cover:
 | first_name      | string | null: false |
 | family_name_kana| string | null: false |
 | first_name_kana | string | null: false |
-| birthday        | string | null: false |
+| birthday        | date   | null: false |
 ### Association
 
 - has_many :items
@@ -43,17 +43,16 @@ Things you may want to cover:
 | address1       | string     | null: false                    |
 | address2       | string     |                                |
 | telephone      | integer    | null: false, unique: true      |
-| user_id        | references | null: false, foreign_key: true |
+| user           | references | null: false, foreign_key: true |
 ### Association
 
-- belongs_to :user
-- belongs_to :buy
+- belongs_to :item
 
 ## items テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| seler_user_id | references | null: false, foreign_key: true |
+| seller_user   | references | null: false, foreign_key: true |
 | category      | integer    | null: false                    |
 | condition     | integer    | null: false                    |
 | price         | integer    | null: false                    |
@@ -65,19 +64,19 @@ Things you may want to cover:
 
 - belongs_to :user
 - has_one :buy
+- has_one :deliver_address
 
 ## buys テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| user_id   | references | null: false, foreign_key: true |
-| item_id   | references | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :item
 - belongs_to :user
-- has_one :deliver_address
 
 * Database initialization
 
