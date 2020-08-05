@@ -12,6 +12,71 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+# テーブル設計
+
+## users テーブル
+
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| nickname        | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| family_name     | string | null: false |
+| first_name      | string | null: false |
+| family_name_kana| string | null: false |
+| first_name_kana | string | null: false |
+| birthday        | date   | null: false |
+### Association
+
+- has_many :items
+- has_many :buys
+
+
+## deliver_address テーブル
+
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| zip_code       | string     | null: false                    |
+| prefecture     | string     | null: false                    |
+| city           | string     | null: false                    |
+| address1       | string     | null: false                    |
+| address2       | string     |                                |
+| telephone      | string     | null: false, unique: true      |
+| item           | references | null: false, foreign_key: true |
+### Association
+
+- belongs_to :item
+
+## items テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| category      | integer    | null: false                    |
+| condition     | integer    | null: false                    |
+| price         | integer    | null: false                    |
+| text          | text       | null: false                    |
+| shipping_date | integer    |                                |
+| ship_from     | integer    | null: false                    |
+| name          | string     | null: false                    |
+| shipping_fee  | integer    | null: false                    |
+### Association
+
+- belongs_to :user
+- has_one :buy
+- has_one :deliver_address
+
+## buys テーブル
+
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :item
+- belongs_to :user
 
 * Database initialization
 
