@@ -59,6 +59,7 @@ Things you may want to cover:
 | shipping_date | integer    |                                |
 | ship_from     | integer    | null: false                    |
 | name          | string     | null: false                    |
+| shipping_fee  | integer    | null: false                    |
 ### Association
 
 - belongs_to :user
