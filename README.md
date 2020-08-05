@@ -30,20 +30,19 @@ Things you may want to cover:
 
 - has_many :items
 - has_many :buys
-- has_one :deliver_address
 
 
 ## deliver_address テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| zip_code       | integer    | null: false                    |
+| zip_code       | string     | null: false                    |
 | prefecture     | string     | null: false                    |
 | city           | string     | null: false                    |
 | address1       | string     | null: false                    |
 | address2       | string     |                                |
-| telephone      | integer    | null: false, unique: true      |
-| user           | references | null: false, foreign_key: true |
+| telephone      | string     | null: false, unique: true      |
+| item           | references | null: false, foreign_key: true |
 ### Association
 
 - belongs_to :item
@@ -52,7 +51,7 @@ Things you may want to cover:
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| seller_user   | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
 | category      | integer    | null: false                    |
 | condition     | integer    | null: false                    |
 | price         | integer    | null: false                    |
