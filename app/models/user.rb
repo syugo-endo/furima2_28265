@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   has_many :items
   has_many :buys
 
@@ -14,4 +15,5 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'は全角カタカナで入力して下さい。' }
     validates :password, format: { with: /\A[a-z0-9]+\z/i, message: 'は半角英数で入力してください。' }
   end
+
 end
