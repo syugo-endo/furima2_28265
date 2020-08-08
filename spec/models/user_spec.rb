@@ -14,6 +14,18 @@ describe User do
         @user.password_confirmation = '123abcd'
         expect(@user).to be_valid
       end
+      it 'family_nameとfirst_nameが全角で入力されている' do
+        @user.family_name = '山田'
+        @user.first_name = '太郎'
+        @user.valid?
+        expect(@user).to be_valid
+      end
+      it 'family_name_kanaとfirst_name_kanaが全角カタカナで入力されている' do
+        @user.family_name = 'ヤマダ'
+        @user.first_name = 'タロウ'
+        @user.valid?
+        expect(@user).to be_valid
+      end
     end
 
     context '新規登録がうまくいかないとき' do
