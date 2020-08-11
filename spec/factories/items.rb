@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    user_id               { 1 }
+    user               { create(:user) }
     category              { 3 }
     condition             { 3 }
     price                 { 1111 }
