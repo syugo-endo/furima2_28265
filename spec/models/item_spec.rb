@@ -52,11 +52,11 @@ describe Item, type: :model do
   it 'priceが¥300以下では保存できない' do
     @item.price = 260
     @item.valid?
-    expect(@item.errors.full_messages).to include("Price Out of setting range")
+    expect(@item.errors.full_messages).to include('Price Out of setting range')
   end
   it 'priceが¥9999999以上では保存できない' do
-    @item.price = 100000000
+    @item.price = 100_000_000
     @item.valid?
-    expect(@item.errors.full_messages).to include("Price Out of setting range")
+    expect(@item.errors.full_messages).to include('Price Out of setting range')
   end
 end
