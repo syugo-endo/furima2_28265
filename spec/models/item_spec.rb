@@ -14,10 +14,20 @@ describe Item, type: :model do
     @item.valid?
     expect(@item.errors.full_messages).to include("Image can't be blank")
   end
+  it 'categoryが1では保存できない' do
+    @item.category = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Category Select")
+  end
   it 'categoryが空では保存できない' do
     @item.category = nil
     @item.valid?
     expect(@item.errors.full_messages).to include("Category can't be blank")
+  end
+  it 'conditionが1では保存できない' do
+    @item.condition = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Condition Select")
   end
   it 'conditionが空では保存できない' do
     @item.condition = nil
@@ -34,15 +44,30 @@ describe Item, type: :model do
     @item.valid?
     expect(@item.errors.full_messages).to include("Text can't be blank")
   end
+  it 'shipping_feeが1では保存できない' do
+    @item.shipping_fee = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Shipping fee Select")
+  end
   it 'shipping_feeが空では保存できない' do
     @item.shipping_fee = nil
     @item.valid?
     expect(@item.errors.full_messages).to include("Shipping fee can't be blank")
   end
+  it 'shipping_dateが1では保存できない' do
+    @item.shipping_date = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Shipping date Select")
+  end
   it 'shipping_dateが空では保存できない' do
     @item.shipping_date = nil
     @item.valid?
     expect(@item.errors.full_messages).to include("Shipping date can't be blank")
+  end
+  it 'ship_fromが0では保存できない' do
+    @item.ship_from = 0
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Ship from Select")
   end
   it 'ship_fromが空では保存できない' do
     @item.ship_from = nil
