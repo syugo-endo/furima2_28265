@@ -42,7 +42,7 @@ describe User do
       it 'emailに@がないと登録できない' do
         @user.email = 'kkkgmail.com'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it '重複したemailが存在する場合登録できない' do
         @user.save
@@ -62,10 +62,10 @@ describe User do
         expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'passwordは半角英数字混合でないと登録できない' do
-         @user.password = '123333'
-         @user.password_confirmation = '123333'
-         @user.valid?
-         expect(@user.errors.full_messages).to include("Password は半角英数混合で入力してください。")
+        @user.password = '123333'
+        @user.password_confirmation = '123333'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password は半角英数混合で入力してください。')
       end
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         @user.password_confirmation = ''
@@ -76,13 +76,13 @@ describe User do
         @user.family_name = 'yamada'
         @user.first_name = 'tarou'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name は全角で入力してください。", "First name は全角で入力してください。")
+        expect(@user.errors.full_messages).to include('Family name は全角で入力してください。', 'First name は全角で入力してください。')
       end
       it 'family_name_kanaとfirst_name_kanaが全角カタカナで入力されている' do
         @user.family_name_kana = '山田'
         @user.first_name_kana = 'たろう'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name kana は全角カタカナで入力して下さい。", "First name kana は全角カタカナで入力して下さい。")
+        expect(@user.errors.full_messages).to include('Family name kana は全角カタカナで入力して下さい。', 'First name kana は全角カタカナで入力して下さい。')
       end
     end
   end
