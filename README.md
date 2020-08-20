@@ -57,7 +57,7 @@ Things you may want to cover:
 | price         | integer    | null: false                    |
 | text          | text       | null: false                    |
 | shipping_date | integer    |                                |
-| ship_from     | integer    | null: false                    |
+| prefecture     | integer    | null: false                    |
 | name          | string     | null: false                    |
 | shipping_fee  | integer    | null: false                    |
 ### Association
