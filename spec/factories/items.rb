@@ -8,7 +8,7 @@ FactoryBot.define do
     text                  { 'は' }
     shipping_date_id         { 3 }
     shipping_fee_id          { 1111 }
-    prefecture_id             { 3 }
-    image                    { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/files/test_image.jpeg')) }
+    prefecture_id { 3 }
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/files/test_image.jpeg')) }
   end
 end
