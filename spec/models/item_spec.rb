@@ -5,7 +5,7 @@ describe Item, type: :model do
     @item.image = fixture_file_upload('spec/fixtures/files/test_image.jpeg')
   end
 
-  it 'category,condition,image,name,text,shipping_date,shipping_fee,ship_from,priceが存在していれば出品できる' do
+  it 'category,condition,image,name,text,shipping_date,shipping_fee,prefecture_id,priceが存在していれば出品できる' do
     expect(@item).to be_valid
   end
 
@@ -64,13 +64,13 @@ describe Item, type: :model do
     @item.valid?
     expect(@item.errors.full_messages).to include("Shipping date can't be blank")
   end
-  it 'ship_fromが0では保存できない' do
-    @item.ship_from = 0
+  it 'prefecture_idが0では保存できない' do
+    @item.prefecture_id = 0
     @item.valid?
     expect(@item.errors.full_messages).to include('Ship from Select')
   end
-  it 'ship_fromが空では保存できない' do
-    @item.ship_from = nil
+  it 'prefecture_idが空では保存できない' do
+    @item.prefecture_id = nil
     @item.valid?
     expect(@item.errors.full_messages).to include("Ship from can't be blank")
   end

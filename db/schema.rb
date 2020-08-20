@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_093416) do
   create_table "deliver_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
     t.string "zip_code", null: false
-    t.string "prefecture", null: false
+    t.string "prefecture_id", null: false
     t.string "city", null: false
     t.string "address1", null: false
     t.string "address2", null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_093416) do
     t.text "text", null: false
     t.integer "shipping_date_id"
     t.integer "shipping_fee_id", null: false
-    t.integer "ship_from_id", null: false
+    t.integer "prefecture_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
